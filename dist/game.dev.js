@@ -1,5 +1,6 @@
-// PSEUDOCODE
+"use strict";
 
+// PSEUDOCODE
 // Empty grid row - 5 letters
 // Buttons that represent letters
 // When a letters is pressed it inputs into the "current" grid box
@@ -7,14 +8,11 @@
 // if letters dont match "word" - grey box
 // if letters match "word" but not order - yellow box
 // if letters match "word" and "word" order - green box
-
-const grid = document.getElementsByClassName("letter__grid");
-const button = document.getElementsByClassName("button_letter");
-
-const submit = document.getElementsByClassName("button_enter")
-
-button.forEach(button => {
-    button.addEventListener("click", (event) =>{
-        grid.innerHTML += button.innerHTML;
-    })
+var grid = document.getElementsByClassName("letter__grid");
+var button = document.getElementsByClassName("button_letter");
+var submit = document.getElementsByClassName("button_enter");
+button.forEach(function (button) {
+  button.addEventListener("click", function (event) {
+    grid.innerHTML += button.innerHTML;
+  });
 });
