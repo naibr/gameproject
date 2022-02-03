@@ -8,11 +8,33 @@
 // if letters dont match "word" - grey box
 // if letters match "word" but not order - yellow box
 // if letters match "word" and "word" order - green box
-var grid = document.getElementsByClassName("letter__grid");
-var button = document.getElementsByClassName("button_letter");
-var submit = document.getElementsByClassName("button_enter");
-button.forEach(function (button) {
-  button.addEventListener("click", function (event) {
-    grid.innerHTML += button.innerHTML;
+var grid = document.querySelectorAll(".letter__grid");
+var letter = document.getElementById("bt1");
+var letters = document.querySelectorAll(".button_letter");
+var submit = document.getElementById("button_enter");
+var row1 = [];
+var correctAnswer = ["R", "I", "G", "H", "T"];
+letters.forEach(function (letter) {
+  letter.addEventListener("click", function (event) {
+    for (var i = 0; i <= 4; i++) {
+      if (grid[i].innerHTML == "") {
+        grid[i].innerHTML = letter.innerHTML;
+        row1.push(letter.innerHTML);
+        console.log(row1);
+        return;
+      }
+    }
   });
+});
+console.log(grid);
+submit.addEventListener("click", function (event) {
+  for (var i = 0; i < row1; i++) {
+    if (correctAnswer.includes(row1[i])) {
+      console.log("right letter");
+    } // for (let i=0; i<correctAnswer; i++)
+    //     if (correctAnswer[i] = row1[i]) {
+    //         console.log("right letter and order")
+    //     }
+
+  }
 });
