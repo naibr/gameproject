@@ -14,7 +14,6 @@ var letters = document.querySelectorAll(".button_letter");
 var submit = document.getElementById("button_enter");
 var refresh = document.querySelector("#refresh");
 var winMessage = document.querySelector(".body__h2");
-console.log(grid);
 var total = 0;
 var rowTotal = 1;
 var count = 0;
@@ -73,10 +72,10 @@ var checkAnswer = function checkAnswer(row, num) {
       winMessage.style.display = "block";
     }
 
-    if (wordArr.indexOf(row[i]) === row.indexOf(row[i])) {
+    if (correctAnswer.indexOf(row[i]) === row.indexOf(row[i])) {
       grid[i + count].style.backgroundColor = "green";
       wordArr.splice(i, 1);
-    } else if (wordArr.includes(row[i]) && wordArr.indexOf(row[i]) !== row.indexOf(row[i])) {
+    } else if (correctAnswer.includes(row[i]) && correctAnswer.indexOf(row[i]) !== row.indexOf(row[i])) {
       grid[i + count].style.backgroundColor = "yellow";
       wordArr.splice(i, 1);
       console.log("includes letter");

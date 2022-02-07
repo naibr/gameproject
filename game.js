@@ -4,7 +4,6 @@ const letters = document.querySelectorAll(".button_letter");
 const submit = document.getElementById("button_enter");
 const refresh = document.querySelector("#refresh");
 const winMessage = document.querySelector(".body__h2");
-console.log(grid);
 
 let total = 0;
 let rowTotal = 1;
@@ -67,12 +66,12 @@ const checkAnswer = (row, num) => {
         if (row.toString() == wordArr.toString()) {
             winMessage.style.display = "block";
         }
-        if (wordArr.indexOf(row[i]) === row.indexOf(row[i])) {
+        if (correctAnswer.indexOf(row[i]) === row.indexOf(row[i])) {
             grid[i + count].style.backgroundColor = "green";
             wordArr.splice(i, 1);
         } else if (
-            wordArr.includes(row[i]) &&
-            wordArr.indexOf(row[i]) !== row.indexOf(row[i])) {
+            correctAnswer.includes(row[i]) &&
+            correctAnswer.indexOf(row[i]) !== row.indexOf(row[i])) {
                 grid[i + count].style.backgroundColor = "yellow";
                 wordArr.splice(i, 1);
                 console.log("includes letter");

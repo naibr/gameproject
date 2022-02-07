@@ -1,6 +1,14 @@
 # gameproject
 
+For this project I attempted to create the popular internet game "Wordle" using
+HTML, SCSS and Javascript.
 
+The game requires the use of eventlisteners to input letters and the use of arrays.
+The user has 6 chances to input letters to guess the word, represented by 6 arrays for each row.
+
+The checkAnswer function checks the array for each row input and compares them 
+to the correct answer using the .includes method and displays a background colour representing whether or not the correct letter has been entered.
+If the letters and order of the letters are all correct the 
 
 
 // PSEUDOCODE
