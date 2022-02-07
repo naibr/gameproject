@@ -1,5 +1,13 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 // PSEUDOCODE
 // Empty grid row - 5 letters
 // Buttons that represent letters
@@ -24,8 +32,9 @@ var row3 = [];
 var row4 = [];
 var row5 = [];
 var row6 = [];
-var ans = [["F", "R", "O", "S", "T"], ["T", "A", "X", "E", "S"], ["E", "N", "Z", "Y", "M"], ["R", "A", "I", "S", "E"], ["C", "R", "A", "Z", "E"], ["R", "I", "G", "H", "T"]];
+var ans = [["F", "R", "O", "S", "T"], ["T", "A", "X", "E", "S"], ["R", "A", "I", "S", "E"], ["C", "R", "A", "Z", "E"], ["R", "I", "G", "H", "T"]];
 var correctAnswer = ans[Math.floor(Math.random() * ans.length)];
+console.log(correctAnswer);
 grid.forEach(function (grid) {
   return grid.style.backgroundColor = "";
 }); // Buttons
@@ -66,18 +75,20 @@ letters.forEach(function (letter) {
 });
 
 var checkAnswer = function checkAnswer(row, num) {
+  var wordArr = _toConsumableArray(correctAnswer);
+
   for (var i = 0; i < row.length; i++) {
-    if (row.toString() == correctAnswer.toString()) {
+    if (row.toString() == wordArr.toString()) {
       winMessage.style.display = "block";
     }
 
-    if (correctAnswer.indexOf(row[i]) === row.indexOf(row[i])) {
+    if (wordArr.indexOf(row[i]) === row.indexOf(row[i])) {
       grid[i + count].style.backgroundColor = "green";
-    } else if (correctAnswer.includes(row[i]) && correctAnswer.indexOf(row[i]) !== row.indexOf(row[i])) {
+      wordArr.splice(i, 1);
+    } else if (wordArr.includes(row[i]) && wordArr.indexOf(row[i]) !== row.indexOf(row[i])) {
       grid[i + count].style.backgroundColor = "yellow";
-      console.log("includes letter"); // if (correctAnswer.includes(row[i]) && row.includes(row.slice(0, row.indexOf(row[i]-1))[i]) ) {
-      //     grid[i+count].style.backgroundColor = "transparent"
-      //     console.log(grid[i + count])
+      wordArr.splice(i, 1);
+      console.log("includes letter");
     } else {
       grid[i + count].style.backgroundColor = "grey";
       console.log("doesn't include letter");
@@ -107,19 +118,4 @@ submit.addEventListener("click", function (event) {
 });
 refresh.addEventListener("click", function () {
   document.location.reload();
-}); // for (let i=0; i<row1.length; i++) {
-//     for (let j=0; j<correctAnswer.length; j++) {
-//         if (row1[i] === correctAnswer[j]) {
-//             // grid[i].style.backgroundColor = "green"
-//             console.log("right letter")
-//         } else {
-//             console.log("wrong letter")
-//         }    
-//     }
-// }
-// for (let i=0; i<correctAnswer; i++)
-//     if (correctAnswer[i] = row1[i]) {
-//     //         console.log("right letter and order")
-//     //     }
-//     }
-// })
+});

@@ -17,6 +17,7 @@ body {
 
 .body__h2 {
   display: none;
+  font-family: Tahoma;
 }
 
 .letter__grid {

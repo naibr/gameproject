@@ -30,13 +30,13 @@ const row6 = [];
 const ans = [
 ["F", "R", "O", "S", "T"],
 ["T", "A", "X", "E", "S"],
-["E", "N", "Z", "Y", "M"],
 ["R", "A", "I", "S", "E"],
 ["C", "R", "A", "Z", "E"],
 ["R", "I", "G", "H", "T"]
 ]
 
 const correctAnswer = ans[Math.floor(Math.random() * ans.length)]
+console.log(correctAnswer);
 
 
 grid.forEach(grid => grid.style.backgroundColor = "");
@@ -76,19 +76,19 @@ letters.forEach(letter => {
 })
 
 const checkAnswer = (row, num) => {
+    const wordArr = [...correctAnswer];
     for (let i=0; i<row.length; i++) {
-        if(row.toString() == correctAnswer.toString()) {
+        if(row.toString() == wordArr.toString()) {
             winMessage.style.display = "block";
         }
-        if (correctAnswer.indexOf(row[i]) === row.indexOf(row[i])) {
+        if (wordArr.indexOf(row[i]) === row.indexOf(row[i])) {
                 grid[i+count].style.backgroundColor = "green"
+                wordArr.splice(i,1);
                 } 
-        else if (correctAnswer.includes(row[i]) && correctAnswer.indexOf(row[i]) !== row.indexOf(row[i]) ) {
-            grid[i+count].style.backgroundColor = "yellow"
+        else if (wordArr.includes(row[i]) && wordArr.indexOf(row[i]) !== row.indexOf(row[i]) ) {
+            grid[i+count].style.backgroundColor = "yellow";
+            wordArr.splice(i,1);
             console.log("includes letter");
-            // if (correctAnswer.includes(row[i]) && row.includes(row.slice(0, row.indexOf(row[i]-1))[i]) ) {
-            //     grid[i+count].style.backgroundColor = "transparent"
-            //     console.log(grid[i + count])
         } else {
             grid[i+count].style.backgroundColor = "grey"
             console.log( "doesn't include letter")
@@ -96,8 +96,6 @@ const checkAnswer = (row, num) => {
     }
     count += 5;
     }
-
-
 
 
 
@@ -124,22 +122,3 @@ submit.addEventListener("click", (event) => {
 refresh.addEventListener("click", () => {
     document.location.reload()
 })
-
-
-    // for (let i=0; i<row1.length; i++) {
-    //     for (let j=0; j<correctAnswer.length; j++) {
-    //         if (row1[i] === correctAnswer[j]) {
-    //             // grid[i].style.backgroundColor = "green"
-    //             console.log("right letter")
-    //         } else {
-    //             console.log("wrong letter")
-    //         }    
-    //     }
-    // }
-
-    // for (let i=0; i<correctAnswer; i++)
-    //     if (correctAnswer[i] = row1[i]) {
-//     //         console.log("right letter and order")
-//     //     }
-//     }
-// })
