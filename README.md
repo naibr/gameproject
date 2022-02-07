@@ -21,3 +21,11 @@ If the letters and order of the letters are all correct the
 // if letters dont match "word" - grey box
 // if letters match "word" but not order - yellow box
 // if letters match "word" and "word" order - green box
+
+
+check answer:
+- the current row is an empty array 
+- if current item is empty input letter on click, else input in next item
+- when letter is pressed, push to row array
+- repeat until array length is 5
+- compare row array with word when enter is pressed
