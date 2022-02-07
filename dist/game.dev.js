@@ -8,14 +8,6 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-// PSEUDOCODE
-// Empty grid row - 5 letters
-// Buttons that represent letters
-// When a letters is pressed it inputs into the "current" grid box
-// when enter is pressed checks if letters match order or "word"
-// if letters dont match "word" - grey box
-// if letters match "word" but not order - yellow box
-// if letters match "word" and "word" order - green box
 var grid = document.querySelectorAll(".letter__grid");
 var letter = document.getElementById("bt1");
 var letters = document.querySelectorAll(".button_letter");
@@ -57,8 +49,7 @@ letters.forEach(function (letter) {
           row5.push(letter.innerHTML);
         } else if (row6.length < 5) {
           row6.push(letter.innerHTML);
-        } // row1.push(letter.innerHTML)
-
+        }
 
         console.log(row1);
         console.log(row2);
